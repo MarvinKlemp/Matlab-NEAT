@@ -1,9 +1,18 @@
 clear();
 % Konfiguration
-network_num = 10;
-num_input = 3;
+num_networks = 10;
+num_input = 1;
 num_output = 1;
+bias = 1;
+num_generations = 50;
 
-networks = init(network_num, num_input, num_output);
+networks = init(num_networks, num_input, bias, num_output);
 
-1;
+
+for i=1:num_generations
+    for j=1:num_networks
+        % Evaluate Network
+        
+        % EVO
+    end
+end

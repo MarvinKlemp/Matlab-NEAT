@@ -1,4 +1,4 @@
-function [gene] = init_connection(in, out)
+function [gene] = init_connection(in, out, bias)
 %{
 In 1
 Out 4
@@ -7,7 +7,13 @@ Enabled
 Innov 1
 %}
     enabled = 1;
-    weight = randn();
+    
+    if bias == 0
+        weight = randn();
+    else 
+        weight = 1;
+    end
+    
     innovation = 1;
     
     gene = struct('in', in, 'out', out, 'weight', weight,'enabled', enabled, 'innovation', innovation);
