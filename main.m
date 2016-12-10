@@ -34,4 +34,3 @@ for i=1:num_generations
     networks = evolve(networks, config_evo);
 end
 
-x;
