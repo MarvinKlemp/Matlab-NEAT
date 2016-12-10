@@ -1,6 +1,8 @@
 function [fitness, err] = evaluate(network, data)
-    [num_input, num_hidden, num_out] = network_get_stats(network); 
-    act = zeros(1, num_hidden+num_out);
+    % ERROR HIER
+    num_hidden = network{3}.num_hidden;
+    num_outputs = network{3}.num_outputs;
+    act = zeros(1, num_hidden+num_outputs);
     
     % calculate fitness
     err = [];
