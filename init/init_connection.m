@@ -1,15 +1,8 @@
 function [gene] = init_connection(in, out, bias)
-%{
-In 1
-Out 4
-Weight 0.7
-Enabled
-Innov 1
-%}
     enabled = 1;
     
     if bias == 0
-        weight = randn();
+        weight = 0.1*randn();
     else 
         weight = 1;
     end

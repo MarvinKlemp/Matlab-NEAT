@@ -4,16 +4,7 @@ function [networks_evolved] = evolve(networks, config_evo)
     % Elite
     elite = find_elite(networks);
     networks_evolved(:, 1) = elite;
-    
-    networks_evolved = tournament(networks);
-    
-    for i=1:size(networks, 2)
-        % evolved_network = networks(:, i);
-        % Tournament
-        % Crossover
-        % Mutate
-        evolved_network = mutate(networks(:, i), config_evo);
-        networks_evolved(:, i) = evolved_network;
-    end
+    networks_evolved = tournament(networks_evolved);
+    networks_evolved = mutate(networks_evolved, config_evo);
 end
 

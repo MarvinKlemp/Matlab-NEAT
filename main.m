@@ -1,17 +1,17 @@
 clear();
 
 % General Config
-num_networks = 5;
+num_networks = 100;
 num_input = 1;
 num_output = 1;
 bias = 1;
-num_generations = 5;
+num_generations = 100;
 
 % EVO Config
-mut_rate_weight = 0.05;
-mut_weight_strenght = 0.2;
-mut_rate_add_node = 0.05;
-mut_rate_add_connection = 0.05;
+mut_rate_weight = 0.5;
+mut_weight_strenght = 0.1;
+mut_rate_add_node = 0;%0.03;
+mut_rate_add_connection = 0;%0.1;
 config_evo = struct('num_networks', num_networks, 'mut_rate_weight', mut_rate_weight, 'mut_rate_add_node', mut_rate_add_node, 'mut_rate_add_connection', mut_rate_add_connection, 'mut_weight_strenght', mut_weight_strenght);
 
 networks = init(num_networks, num_input, bias, num_output);
@@ -20,6 +20,8 @@ networks = init(num_networks, num_input, bias, num_output);
 data = experiment_heartbeat();
 
 % Main Algorithm
+err_min = [];
+err_mean = [];
 for i=1:num_generations
     err = [];
     for j=1:num_networks
@@ -34,5 +36,5 @@ for i=1:num_generations
     networks = evolve(networks, config_evo);
     
     % Plot
+    [err_min, err_mean] = plot_generation(err, err_min, err_mean);
 end
-
