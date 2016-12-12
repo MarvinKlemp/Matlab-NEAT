@@ -5,13 +5,13 @@ num_networks = 100;
 num_input = 1;
 num_output = 1;
 bias = 1;
-num_generations = 100;
+num_generations = 10;
 
 % EVO Config
 mut_rate_weight = 0.5;
 mut_weight_strenght = 0.1;
-mut_rate_add_node = 0;%0.03;
-mut_rate_add_connection = 0;%0.1;
+mut_rate_add_node = 0.03;
+mut_rate_add_connection = 0.1;
 config_evo = struct('num_networks', num_networks, 'mut_rate_weight', mut_rate_weight, 'mut_rate_add_node', mut_rate_add_node, 'mut_rate_add_connection', mut_rate_add_connection, 'mut_weight_strenght', mut_weight_strenght);
 
 networks = init(num_networks, num_input, bias, num_output);

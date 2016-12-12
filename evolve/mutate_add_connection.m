@@ -5,7 +5,6 @@ function [network] = mutate_add_connection(network)
     stmt = false;
     i = 0;
     while stmt == false && i <= 10
-        % out, max muss größer als input sein
         in = randi(num_nodes);
         out = randi([num_inputs+1, num_nodes]);
         
