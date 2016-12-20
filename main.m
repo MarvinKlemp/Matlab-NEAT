@@ -5,7 +5,7 @@ num_networks = 100;
 num_input = 1;
 num_output = 1;
 bias = 1;
-num_generations = 10;
+num_generations = 200;
 
 % EVO Config
 mut_rate_weight = 0.5;
