@@ -1,4 +1,4 @@
-function [selected_networks] = tournament(networks)
+function [selected_networks] = tournament(networks, config_evo)
     selected_networks = networks;
     num_networks = size(networks,2);
     
@@ -16,7 +16,11 @@ function [selected_networks] = tournament(networks)
         t2_parent = networks(:, t2_p1_p2_index(t2_par));
         
         % Crossover 
-        selected_networks(:, i) = crossover_neat(t1_parent, t2_parent);
+        if rand() < config_evo.rate_crossover
+            selected_networks(:, i) = crossover_neat(t1_parent, t2_parent);
+        else
+            selected_networks(:, i) = crossover_pre(t1_parent, t2_parent);
+        end
     end
 end
 

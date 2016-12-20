@@ -13,9 +13,9 @@ function [network] = mutate_add_node(network)
         connection = network{2}(num_connection);
         
         if connection.enabled == true
-            new_connection_in = init_connection(connection.in, num_next, 0);
+            new_connection_in = init_connection(connection.in, num_next, 1);
             new_connection_out = init_connection(num_next, connection.out, 0);
-            
+            new_connection_out.weight = connection.weight;
             % Update Network
             network{2}(num_connection).enabled = 0;
             network{2} = [network{2}, new_connection_in];

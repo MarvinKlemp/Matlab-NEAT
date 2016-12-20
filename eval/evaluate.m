@@ -6,7 +6,7 @@ function [fitness, err] = evaluate(network, data)
     
     % calculate fitness
     err = [];
-    for i=1:size(data,2)
+    for i=1:1
         for j=1:size(data{i}, 1)
             in = data{i}(j, 3);
             target = data{i}(j, 2);
