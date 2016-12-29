@@ -1,7 +1,9 @@
-function [err_min, err_mean] = plot_generation(err_min, err_mean, networks)
+function [err_min, err_mean] = plot_generation(err_min, err_mean, speciations)
     err = [];
-    for i=1:size(networks,2)
-        err = [err networks{3, i}.error];
+    for j=1:size(speciations,2)
+        for i=1:size(speciations{j},2)
+            err = [err speciations{j}{3, i}.error];
+        end
     end
 
     err_min = [err_min min(err)];
