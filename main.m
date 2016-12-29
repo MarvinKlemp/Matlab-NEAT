@@ -25,9 +25,12 @@ best_network = networks(:, 1);
 best_network{3}.fitness = 100;
 err_mean = [];
 err_min = [];
-gen_min = [];
-gen_avg = [];
-gen_max = [];
+gen_node_min = [];
+gen_node_avg = [];
+gen_node_max = [];
+gen_conn_min = [];
+gen_conn_avg = [];
+gen_conn_max = [];
 for i=1:num_generations
     for j=1:num_networks
         % Evaluate Network
@@ -43,8 +46,8 @@ for i=1:num_generations
     % Plot
     [err_min, err_mean] = plot_generation(err_min, err_mean, networks);
     plot_elite(best_network);
-    [gen_min, gen_avg, gen_max] = plot_node_num(gen_min, gen_avg, gen_max, networks);
-    
+    [gen_node_min, gen_node_avg, gen_node_max] = plot_node_num(gen_node_min, gen_node_avg, gen_node_max, networks);
+    [gen_conn_min, gen_conn_avg, gen_conn_max] = plot_conn_num(gen_conn_min, gen_conn_avg, gen_conn_max, networks);
     % EVO
     networks = evolve(networks, config_evo);
 end
